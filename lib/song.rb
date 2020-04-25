@@ -29,7 +29,9 @@ class Song
   def self.genre_count
     hash = {}
     @@artists.map do |ele|
-      hash[ele]
+      hash[ele] += 1 if hash.key?(ele)
+      hash[ele] = 1
     end
+    hash
   end
 end
