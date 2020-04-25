@@ -41,11 +41,8 @@ class Song
   def self.artist_count
     hash = {}
     @@artists.map do |ele|
-      if hash.key?(ele)
-        hash[ele] += 1 
-      else
-        hash[ele] = 1 
-      end
+     hash[ele] = 1 unless hash.key?(ele)
+     hash[ele] += 1
     end
     hash
   end
